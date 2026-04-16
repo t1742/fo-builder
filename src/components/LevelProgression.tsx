@@ -16,9 +16,12 @@ export function LevelProgression({ build, computedSkills, skillRate, onAllocate,
   const perkLevels = getPerkLevels(build);
 
   return (
-    <section id="leveling" className="mb-10">
-      <div className="flex items-baseline justify-between mb-4">
-        <h2 className="section-header mb-0 border-0 pb-0">LEVEL PROGRESSION</h2>
+    <div id="leveling" className="pip-panel p-4">
+      <div className="flex items-center justify-between mb-3">
+        <div className="text-xs tracking-[0.2em] text-pip-green-dim"
+          style={{ fontFamily: 'VT323, monospace', fontSize: '16px' }}>
+          LEVEL PROGRESSION
+        </div>
         <div className="flex items-center gap-3">
           <span className="text-pip-green-dim text-sm">LEVEL</span>
           <button className="pip-btn pip-btn-sm" onClick={() => onSetLevel(build.level - 1)} disabled={build.level <= 1}>−</button>
@@ -30,7 +33,7 @@ export function LevelProgression({ build, computedSkills, skillRate, onAllocate,
         </div>
       </div>
 
-      <div className="pip-panel">
+      <div>
         {Array.from({ length: build.level }, (_, i) => i + 1).map((lvl) => {
           if (lvl === 1) return null; // Level 1 is character creation
           const isExpanded = expandedLevel === lvl;
@@ -116,7 +119,7 @@ export function LevelProgression({ build, computedSkills, skillRate, onAllocate,
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 }
 

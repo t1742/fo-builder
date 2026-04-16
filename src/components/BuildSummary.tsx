@@ -57,10 +57,13 @@ export function BuildSummary({ build, onExport, onImport, onReset }: Props) {
   const totalPerks = Object.values(build.selectedPerks).reduce((s, lvl) => s + lvl.length, 0);
 
   return (
-    <section id="summary" className="mb-10">
-      <h2 className="section-header">BUILD SUMMARY</h2>
+    <div id="summary" className="pip-panel p-4">
+      <div className="text-xs tracking-[0.2em] text-pip-green-dim mb-3"
+        style={{ fontFamily: 'VT323, monospace', fontSize: '16px' }}>
+        BUILD SUMMARY
+      </div>
 
-      <div className="pip-panel p-4 space-y-4">
+      <div className="space-y-4">
         {/* Overview */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           <SummaryCard label="NAME" value={build.name} />
@@ -99,7 +102,7 @@ export function BuildSummary({ build, onExport, onImport, onReset }: Props) {
           className="hidden"
         />
       </div>
-    </section>
+    </div>
   );
 }
 

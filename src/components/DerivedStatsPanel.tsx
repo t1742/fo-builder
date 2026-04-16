@@ -1,66 +1,64 @@
 import type { ComputedDerivedStats } from '@/types';
-import { derivedStatsData } from '@/data';
 
 interface Props {
   stats: ComputedDerivedStats;
-  perkRate: number;
+  hitPointsMax: number;
+  level: number;
 }
 
-const STAT_KEY_MAP: Record<string, keyof ComputedDerivedStats> = {
-  actionPoints: 'actionPoints',
-  armorClass: 'armorClass',
-  carryWeight: 'carryWeight',
-  criticalChance: 'criticalChance',
-  damageResistance: 'damageResistance',
-  healingRate: 'healingRate',
-  hitPoints: 'hitPoints',
-  meleeDamage: 'meleeDamage',
-  perkRate: 'perkRate',
-  poisonResistance: 'poisonResistance',
-  radiationResistance: 'radiationResistance',
-  sequence: 'sequence',
-  skillRate: 'skillRate',
-};
-
-export function DerivedStatsPanel({ stats }: Props) {
+export function DerivedStatsPanel({ stats, hitPointsMax, level }: Props) {
   return (
     <div>
-      <div className="text-xs tracking-[0.2em] text-pip-green-dim mb-3"
-        style={{ fontFamily: 'VT323, monospace', fontSize: '18px' }}>
-        DERIVED STATISTICS
+      {/* Hit Points - prominent like original */}
+      <div className="mb-3 pb-2 border-b border-pip-border/40">
+        <div className="flex items-baseline justify-between">
+          <span className="text-xs text-pip-green-dim">Hit Points</span>
+          <span className="font-display text-pip-green text-glow"
+            style={{ fontFamily: 'VT323, monospace', fontSize: '24px' }}>
+            {hitPointsMax}/{hitPointsMax}
+          </span>
+        </div>
+        <div className="h-2 bg-pip-grid rounded-sm overflow-hidden mt-1">
+          <div className="h-full bg-pip-green rounded-sm" style={{ width: '100%' }} />
+        </div>
       </div>
 
-      <div className="space-y-2">
-        {derivedStatsData.derivedStats.map((ds) => {
-          const key = STAT_KEY_MAP[ds.id];
-          const value = key ? stats[key] : 0;
-          const unit = ds.unit || '';
-
-          return (
-            <div key={ds.id} className="pip-tooltip group">
-              <div className="flex items-center justify-between py-1 border-b border-pip-border/30 hover:border-pip-border/60 transition-colors">
-                <div className="flex items-center gap-2">
-                  <span className="text-pip-green-dim text-[10px] tracking-wider w-8">
-                    {ds.abbreviation}
-                  </span>
-                  <span className="text-xs text-pip-green-dim group-hover:text-pip-green transition-colors">
-                    {ds.name}
-                  </span>
-                </div>
-                <span className="font-display text-lg text-pip-green text-glow"
-                  style={{ fontFamily: 'VT323, monospace', fontSize: '22px' }}>
-                  {value}{unit}
-                </span>
-              </div>
-              <div className="tooltip-text !left-0 !transform-none max-w-[250px] whitespace-normal">
-                {ds.description}
-                <br />
-                <span className="text-pip-green-dim">Formula: {ds.formula}</span>
-              </div>
-            </div>
-          );
-        })}
+      {/* Level info */}
+      <div className="mb-3 pb-2 border-b border-pip-border/40 space-y-0.5">
+        <StatRow label="Level" value={level} />
       </div>
+
+      {/* Core derived stats - like original layout */}
+      <div className="space-y-0.5">
+        <StatRow label="Armor Class" value={stats.armorClass} />
+        <StatRow label="Action Points" value={stats.actionPoints} />
+        <StatRow label="Carry Weight" value={stats.carryWeight} />
+        <StatRow label="Melee Damage" value={stats.meleeDamage} />
+        <StatRow label="Damage Res." value={stats.damageResistance} unit="%" />
+        <StatRow label="Poison Res." value={stats.poisonResistance} unit="%" />
+        <StatRow label="Radiation Res." value={stats.radiationResistance} unit="%" />
+        <StatRow label="Sequence" value={stats.sequence} />
+        <StatRow label="Healing Rate" value={stats.healingRate} />
+        <StatRow label="Critical Chance" value={stats.criticalChance} unit="%" />
+      </div>
+
+      {/* Skill/Perk rates */}
+      <div className="mt-3 pt-2 border-t border-pip-border/40 space-y-0.5">
+        <StatRow label="Skill Rate" value={stats.skillRate} />
+        <StatRow label="Perk Rate" value={stats.perkRate} />
+      </div>
+    </div>
+  );
+}
+
+function StatRow({ label, value, unit = '' }: { label: string; value: number; unit?: string }) {
+  return (
+    <div className="flex items-center justify-between py-px group">
+      <span className="text-xs text-pip-green-dim group-hover:text-pip-green transition-colors">{label}</span>
+      <span className="font-display text-pip-green"
+        style={{ fontFamily: 'VT323, monospace', fontSize: '20px' }}>
+        {value}{unit}
+      </span>
     </div>
   );
 }

@@ -23,8 +23,11 @@ export function PerkSelector({ build, computedSkills, onSelectPerk, onRemovePerk
   const effectiveSpecial = getEffectiveSpecial(build);
 
   return (
-    <section id="perks" className="mb-10">
-      <h2 className="section-header">PERKS</h2>
+    <div id="perks" className="pip-panel p-4">
+      <div className="text-xs tracking-[0.2em] text-pip-green-dim mb-3"
+        style={{ fontFamily: 'VT323, monospace', fontSize: '16px' }}>
+        PERKS
+      </div>
 
       {perkLevels.length === 0 ? (
         <div className="pip-panel p-6 text-center text-pip-green-dim text-sm">
@@ -92,7 +95,7 @@ export function PerkSelector({ build, computedSkills, onSelectPerk, onRemovePerk
           })}
         </div>
       )}
-    </section>
+    </div>
   );
 }
 

@@ -1,27 +1,16 @@
 import { traitsData, MAX_TRAITS } from '@/data';
+import { Modal } from './Modal';
 
 interface Props {
+  open: boolean;
+  onClose: () => void;
   selected: string[];
   onToggle: (traitId: string) => void;
 }
 
-export function TraitSelector({ selected, onToggle }: Props) {
+export function TraitModal({ open, onClose, selected, onToggle }: Props) {
   return (
-    <div id="traits" className="pip-panel p-4">
-      <div className="flex items-center justify-between mb-3">
-        <div className="text-xs tracking-[0.2em] text-pip-green-dim"
-          style={{ fontFamily: 'VT323, monospace', fontSize: '16px' }}>
-          TRAITS
-        </div>
-        <div className="text-xs">
-          <span className="text-pip-green-dim">SEL: </span>
-          <span className={`font-display text-lg ${selected.length < MAX_TRAITS ? 'text-pip-green text-glow' : 'text-pip-amber text-glow-amber'}`}
-            style={{ fontFamily: 'VT323, monospace' }}>
-            {selected.length}/{MAX_TRAITS}
-          </span>
-        </div>
-      </div>
-
+    <Modal open={open} onClose={onClose} title={`SELECT TRAITS (${selected.length}/${MAX_TRAITS})`}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {traitsData.traits.map((trait) => {
           const isSelected = selected.includes(trait.id);
@@ -42,8 +31,8 @@ export function TraitSelector({ selected, onToggle }: Props) {
             >
               <div className="flex items-center gap-2 mb-2">
                 <div className={`w-3 h-3 border ${isSelected ? 'border-pip-green bg-pip-green' : 'border-pip-border'} transition-all`} />
-                <span className="font-display text-lg tracking-wider"
-                  style={{ fontFamily: 'VT323, monospace', fontSize: '22px' }}>
+                <span style={{ fontFamily: 'VT323, monospace', fontSize: '22px' }}
+                  className="tracking-wider text-pip-green">
                   {trait.name}
                 </span>
               </div>
@@ -61,6 +50,6 @@ export function TraitSelector({ selected, onToggle }: Props) {
           );
         })}
       </div>
-    </div>
+    </Modal>
   );
 }
