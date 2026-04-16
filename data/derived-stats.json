@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "game": "Fallout 1",
+    "source": "https://fallout.fandom.com/wiki/Fallout_derived_statistics"
+  },
+  "derivedStats": [
+    {
+      "id": "actionPoints",
+      "name": "Action Points",
+      "abbreviation": "AP",
+      "description": "The amount of actions your character can take during a combat turn.",
+      "derivedFrom": ["AG"],
+      "formula": "floor(AG / 2) + 5",
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "armorClass",
+      "name": "Armor Class",
+      "abbreviation": "AC",
+      "description": "How good your character is at avoiding being hit in combat.",
+      "derivedFrom": ["AG"],
+      "formula": "AG",
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "carryWeight",
+      "name": "Carry Weight",
+      "abbreviation": "CW",
+      "description": "The maximum amount of equipment your character can carry, in pounds.",
+      "derivedFrom": ["ST"],
+      "formula": "(ST + 1) * 25",
+      "smallFrameFormula": "25 + (15 * ST)",
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "criticalChance",
+      "name": "Critical Chance",
+      "abbreviation": "CC",
+      "description": "Chance to cause a critical hit.",
+      "derivedFrom": ["LK"],
+      "formula": "LK",
+      "min": 0,
+      "max": 100,
+      "unit": "%"
+    },
+    {
+      "id": "damageResistance",
+      "name": "Damage Resistance",
+      "abbreviation": "DR",
+      "description": "Any damage taken is reduced by this amount.",
+      "derivedFrom": [],
+      "formula": "0",
+      "min": 0,
+      "max": null,
+      "unit": "%"
+    },
+    {
+      "id": "healingRate",
+      "name": "Healing Rate",
+      "abbreviation": "HR",
+      "description": "How much Hit Points you heal at the end of each day.",
+      "derivedFrom": ["EN"],
+      "formula": "max(floor(EN / 3), 1)",
+      "min": 1,
+      "max": null
+    },
+    {
+      "id": "hitPoints",
+      "name": "Hit Points",
+      "abbreviation": "HP",
+      "description": "How much damage your character can take before dying.",
+      "derivedFrom": ["EN", "ST"],
+      "formula": "15 + (2 * EN) + ST",
+      "hpPerLevel": "0",
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "meleeDamage",
+      "name": "Melee Damage",
+      "abbreviation": "MD",
+      "description": "Amount of bonus damage in hand-to-hand combat.",
+      "derivedFrom": ["ST"],
+      "formula": "max(ST - 5, 1)",
+      "min": 1,
+      "max": null
+    },
+    {
+      "id": "perkRate",
+      "name": "Perk Rate",
+      "abbreviation": "PR",
+      "description": "How many levels must pass before your character gains another perk.",
+      "derivedFrom": [],
+      "formula": "3",
+      "skilledFormula": "4",
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "poisonResistance",
+      "name": "Poison Resistance",
+      "abbreviation": "PsnR",
+      "description": "Reduces any poison damage by this amount.",
+      "derivedFrom": ["EN"],
+      "formula": "EN * 5",
+      "min": 0,
+      "max": 100,
+      "unit": "%"
+    },
+    {
+      "id": "radiationResistance",
+      "name": "Radiation Resistance",
+      "abbreviation": "RadR",
+      "description": "Amount of radiation your character is exposed to is reduced by this amount.",
+      "derivedFrom": ["EN"],
+      "formula": "EN * 2",
+      "min": 0,
+      "max": 100,
+      "unit": "%"
+    },
+    {
+      "id": "sequence",
+      "name": "Sequence",
+      "abbreviation": "Seq",
+      "description": "Determines how soon in a combat turn your character can react.",
+      "derivedFrom": ["PE"],
+      "formula": "PE * 2",
+      "min": null,
+      "max": null
+    },
+    {
+      "id": "skillRate",
+      "name": "Skill Rate",
+      "abbreviation": "SR",
+      "description": "How many skill points your character gains per level.",
+      "derivedFrom": ["IN"],
+      "formula": "(IN * 2) + 5",
+      "min": null,
+      "max": null
+    }
+  ]
+}

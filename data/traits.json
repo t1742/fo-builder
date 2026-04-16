@@ -1,0 +1,242 @@
+{
+  "meta": {
+    "game": "Fallout 1",
+    "source": "https://fallout.fandom.com/wiki/Fallout_traits",
+    "maxTraits": 2,
+    "totalTraits": 16
+  },
+  "traits": [
+    {
+      "id": "bloodyMess",
+      "name": "Bloody Mess",
+      "benefit": "More violent death animations.",
+      "penalty": "Changes the ending.",
+      "effects": {
+        "bonuses": [],
+        "penalties": []
+      }
+    },
+    {
+      "id": "bruiser",
+      "name": "Bruiser",
+      "benefit": "+2 Strength.",
+      "penalty": "-2 Action Points.",
+      "effects": {
+        "bonuses": [
+          { "type": "special", "stat": "ST", "value": 2 }
+        ],
+        "penalties": [
+          { "type": "derivedStat", "stat": "actionPoints", "value": -2 }
+        ]
+      }
+    },
+    {
+      "id": "chemReliant",
+      "name": "Chem Reliant",
+      "benefit": "Faster recovery time from chem addictions.",
+      "penalty": "Twice the chance to get addicted.",
+      "effects": {
+        "bonuses": [
+          { "type": "special", "stat": "addictionRecovery", "value": 2, "description": "Recovery time halved" }
+        ],
+        "penalties": [
+          { "type": "special", "stat": "addictionChance", "value": 2, "description": "Double addiction chance" }
+        ]
+      }
+    },
+    {
+      "id": "chemResistant",
+      "name": "Chem Resistant",
+      "benefit": "Half the chance to get addicted.",
+      "penalty": "Chems last half as long.",
+      "effects": {
+        "bonuses": [
+          { "type": "special", "stat": "addictionChance", "value": 0.5, "description": "Half addiction chance" }
+        ],
+        "penalties": [
+          { "type": "special", "stat": "chemDuration", "value": 0.5, "description": "Chem duration halved" }
+        ]
+      }
+    },
+    {
+      "id": "fastMetabolism",
+      "name": "Fast Metabolism",
+      "benefit": "+2 Healing Rate.",
+      "penalty": "Poison Resistance and Radiation Resistance start at 0%.",
+      "effects": {
+        "bonuses": [
+          { "type": "derivedStat", "stat": "healingRate", "value": 2 }
+        ],
+        "penalties": [
+          { "type": "derivedStat", "stat": "poisonResistance", "override": 0 },
+          { "type": "derivedStat", "stat": "radiationResistance", "override": 0 }
+        ]
+      }
+    },
+    {
+      "id": "fastShot",
+      "name": "Fast Shot",
+      "benefit": "All attacks with weapons use one less Action Point in combat.",
+      "penalty": "Cannot use Aimed Shot for any attack.",
+      "effects": {
+        "bonuses": [
+          { "type": "combat", "stat": "attackApCost", "value": -1 }
+        ],
+        "penalties": [
+          { "type": "combat", "stat": "aimedShot", "disabled": true }
+        ]
+      }
+    },
+    {
+      "id": "finesse",
+      "name": "Finesse",
+      "benefit": "+10% Critical Chance.",
+      "penalty": "-30% overall damage.",
+      "effects": {
+        "bonuses": [
+          { "type": "derivedStat", "stat": "criticalChance", "value": 10 }
+        ],
+        "penalties": [
+          { "type": "combat", "stat": "damageMultiplier", "value": -30 }
+        ]
+      }
+    },
+    {
+      "id": "gifted",
+      "name": "Gifted",
+      "benefit": "+1 to all SPECIAL stats.",
+      "penalty": "-10% to all skills, 5 less skill points at level up.",
+      "effects": {
+        "bonuses": [
+          { "type": "special", "stat": "all", "value": 1 }
+        ],
+        "penalties": [
+          { "type": "skill", "stat": "all", "value": -10 },
+          { "type": "derivedStat", "stat": "skillRate", "value": -5 }
+        ]
+      }
+    },
+    {
+      "id": "goodNatured",
+      "name": "Good Natured",
+      "benefit": "+15% to First Aid, Doctor, Speech, and Barter.",
+      "penalty": "-10% to Small Guns, Big Guns, Energy Weapons, Throwing, Melee Weapons, and Unarmed.",
+      "effects": {
+        "bonuses": [
+          { "type": "skill", "stat": "firstAid", "value": 15 },
+          { "type": "skill", "stat": "doctor", "value": 15 },
+          { "type": "skill", "stat": "speech", "value": 15 },
+          { "type": "skill", "stat": "barter", "value": 15 }
+        ],
+        "penalties": [
+          { "type": "skill", "stat": "smallGuns", "value": -10 },
+          { "type": "skill", "stat": "bigGuns", "value": -10 },
+          { "type": "skill", "stat": "energyWeapons", "value": -10 },
+          { "type": "skill", "stat": "throwing", "value": -10 },
+          { "type": "skill", "stat": "meleeWeapons", "value": -10 },
+          { "type": "skill", "stat": "unarmed", "value": -10 }
+        ]
+      }
+    },
+    {
+      "id": "heavyHanded",
+      "name": "Heavy Handed",
+      "benefit": "+4 Melee Damage.",
+      "penalty": "-30% critical hits table.",
+      "effects": {
+        "bonuses": [
+          { "type": "derivedStat", "stat": "meleeDamage", "value": 4 }
+        ],
+        "penalties": [
+          { "type": "combat", "stat": "criticalHitTable", "value": -30 }
+        ]
+      }
+    },
+    {
+      "id": "jinxed",
+      "name": "Jinxed",
+      "benefit": "More critical failures for people around you.",
+      "penalty": "More critical failures for you, too.",
+      "effects": {
+        "bonuses": [
+          { "type": "combat", "stat": "enemyCritFailure", "description": "Increased critical failure chance for NPCs" }
+        ],
+        "penalties": [
+          { "type": "combat", "stat": "playerCritFailure", "description": "Increased critical failure chance for player" }
+        ]
+      }
+    },
+    {
+      "id": "kamikaze",
+      "name": "Kamikaze",
+      "benefit": "+5 Sequence.",
+      "penalty": "Armor Class starts at 0.",
+      "effects": {
+        "bonuses": [
+          { "type": "derivedStat", "stat": "sequence", "value": 5 }
+        ],
+        "penalties": [
+          { "type": "derivedStat", "stat": "armorClass", "override": 0 }
+        ]
+      }
+    },
+    {
+      "id": "nightPerson",
+      "name": "Night Person",
+      "benefit": "+1 Intelligence and +1 Perception between 6:01 PM and 6:00 AM.",
+      "penalty": "-1 Intelligence and -1 Perception between 6:01 AM and 6:00 PM.",
+      "effects": {
+        "bonuses": [
+          { "type": "special", "stat": "IN", "value": 1, "condition": "night" },
+          { "type": "special", "stat": "PE", "value": 1, "condition": "night" }
+        ],
+        "penalties": [
+          { "type": "special", "stat": "IN", "value": -1, "condition": "day" },
+          { "type": "special", "stat": "PE", "value": -1, "condition": "day" }
+        ]
+      }
+    },
+    {
+      "id": "oneHander",
+      "name": "One Hander",
+      "benefit": "+20% chance to hit with one-handed weapons.",
+      "penalty": "-40% chance to hit with two-handed weapons.",
+      "effects": {
+        "bonuses": [
+          { "type": "combat", "stat": "oneHandedHitChance", "value": 20 }
+        ],
+        "penalties": [
+          { "type": "combat", "stat": "twoHandedHitChance", "value": -40 }
+        ]
+      }
+    },
+    {
+      "id": "skilled",
+      "name": "Skilled",
+      "benefit": "+10% to all skills.",
+      "penalty": "Get a perk every four levels instead of three.",
+      "effects": {
+        "bonuses": [
+          { "type": "skill", "stat": "all", "value": 10 }
+        ],
+        "penalties": [
+          { "type": "derivedStat", "stat": "perkRate", "override": 4 }
+        ]
+      }
+    },
+    {
+      "id": "smallFrame",
+      "name": "Small Frame",
+      "benefit": "+1 Agility.",
+      "penalty": "Carry Weight = 25 + (15 × Strength).",
+      "effects": {
+        "bonuses": [
+          { "type": "special", "stat": "AG", "value": 1 }
+        ],
+        "penalties": [
+          { "type": "derivedStat", "stat": "carryWeight", "formulaOverride": "25 + (15 * ST)" }
+        ]
+      }
+    }
+  ]
+}

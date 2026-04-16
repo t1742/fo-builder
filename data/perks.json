@@ -1,0 +1,612 @@
+{
+  "meta": {
+    "game": "Fallout 1",
+    "source": "https://fallout.fandom.com/wiki/Fallout_perks",
+    "defaultPerkRate": 3,
+    "skilledPerkRate": 4,
+    "firstPerkLevel": 3,
+    "maxLevel": 21,
+    "maxPerks": 7,
+    "maxPerksWithSkilled": 5,
+    "totalRegularPerks": 53
+  },
+  "perks": [
+    {
+      "id": "actionBoy",
+      "name": "Action Boy",
+      "category": "combat",
+      "levelReq": 12,
+      "requirements": { "special": { "AG": 5 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+1 Action Point per rank.",
+      "effects": [{ "stat": "actionPoints", "valuePerRank": 1 }],
+      "notes": null
+    },
+    {
+      "id": "animalFriend",
+      "name": "Animal Friend",
+      "category": "combat",
+      "levelReq": 9,
+      "requirements": { "special": { "CH": 5 }, "skills": { "outdoorsman": 25 } },
+      "ranks": 1,
+      "benefit": "Animals will not attack on sight.",
+      "effects": [],
+      "notes": "Does not apply to deathclaws, centaurs or floaters."
+    },
+    {
+      "id": "awareness",
+      "name": "Awareness",
+      "category": "combat",
+      "levelReq": 3,
+      "requirements": { "special": { "PE": 5 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "Examining a target shows hit points, weapon and ammunition count.",
+      "effects": [],
+      "notes": null
+    },
+    {
+      "id": "betterCriticals",
+      "name": "Better Criticals",
+      "category": "combat",
+      "levelReq": 9,
+      "requirements": { "special": { "PE": 6, "AG": 4, "LK": 6 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "20% bonus to critical hit damage.",
+      "effects": [{ "stat": "criticalDamageBonus", "valuePerRank": 20 }],
+      "notes": null
+    },
+    {
+      "id": "bonusHtHAttacks",
+      "name": "Bonus HtH Attacks",
+      "category": "combat",
+      "levelReq": 6,
+      "requirements": { "special": { "AG": 6 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "Hand-to-hand and melee attacks cost 1 AP less to perform.",
+      "effects": [{ "stat": "hthApCost", "valuePerRank": -1 }],
+      "notes": null
+    },
+    {
+      "id": "bonusHtHDamage",
+      "name": "Bonus HtH Damage",
+      "category": "combat",
+      "levelReq": 3,
+      "requirements": { "special": { "ST": 6, "AG": 6 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+2 points of damage for hand-to-hand and melee attacks.",
+      "effects": [{ "stat": "meleeDamage", "valuePerRank": 2 }],
+      "notes": "Marginal bonus."
+    },
+    {
+      "id": "bonusMove",
+      "name": "Bonus Move",
+      "category": "combat",
+      "levelReq": 6,
+      "requirements": { "special": { "AG": 5 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+2 AP per turn that can only be used for movement.",
+      "effects": [{ "stat": "bonusMoveAP", "valuePerRank": 2 }],
+      "notes": null
+    },
+    {
+      "id": "bonusRangedDamage",
+      "name": "Bonus Ranged Damage",
+      "category": "combat",
+      "levelReq": 6,
+      "requirements": { "special": { "AG": 6, "LK": 6 }, "skills": {} },
+      "ranks": 2,
+      "benefit": "+2 points of damage for ranged weapon attacks.",
+      "effects": [{ "stat": "rangedDamage", "valuePerRank": 2 }],
+      "notes": "Marginal bonus."
+    },
+    {
+      "id": "bonusRateOfFire",
+      "name": "Bonus Rate of Fire",
+      "category": "combat",
+      "levelReq": 9,
+      "requirements": { "special": { "PE": 6, "IN": 6, "AG": 7 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "Ranged weapon attacks cost 1 AP less to perform.",
+      "effects": [{ "stat": "rangedApCost", "valuePerRank": -1 }],
+      "notes": null
+    },
+    {
+      "id": "dodger",
+      "name": "Dodger",
+      "category": "combat",
+      "levelReq": 9,
+      "requirements": { "special": { "AG": 4 }, "skills": {} },
+      "ranks": 2,
+      "benefit": "+5 Armor Class.",
+      "effects": [{ "stat": "armorClass", "valuePerRank": 5 }],
+      "notes": null
+    },
+    {
+      "id": "earlierSequence",
+      "name": "Earlier Sequence",
+      "category": "combat",
+      "levelReq": 3,
+      "requirements": { "special": { "PE": 6 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+2 to attack sequence.",
+      "effects": [{ "stat": "sequence", "valuePerRank": 2 }],
+      "notes": "Only affects initial combat turn if NPCs initiate combat."
+    },
+    {
+      "id": "friendlyFoe",
+      "name": "Friendly Foe",
+      "category": "combat",
+      "levelReq": 6,
+      "requirements": { "special": { "PE": 4 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "In-combat characters on the player's team are highlighted green, instead of red.",
+      "effects": [],
+      "notes": "Reimplemented in Fallout 2 as a core part of the interface."
+    },
+    {
+      "id": "heaveHo",
+      "name": "Heave Ho!",
+      "category": "combat",
+      "levelReq": 6,
+      "requirements": { "special": {}, "skills": {} },
+      "ranks": 3,
+      "benefit": "+2 to Strength when determining range of a thrown weapon.",
+      "effects": [{ "stat": "throwRange", "valuePerRank": 2 }],
+      "notes": "Does not have any effect unless the player character's strength is less than 4."
+    },
+    {
+      "id": "moreCriticals",
+      "name": "More Criticals",
+      "category": "combat",
+      "levelReq": 6,
+      "requirements": { "special": { "LK": 6 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+5% chance of critical hits.",
+      "effects": [{ "stat": "criticalChance", "valuePerRank": 5 }],
+      "notes": null
+    },
+    {
+      "id": "nightVision",
+      "name": "Night Vision",
+      "category": "combat",
+      "levelReq": 3,
+      "requirements": { "special": { "PE": 6 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "10% reduction in darkness level.",
+      "effects": [{ "stat": "darknessReduction", "valuePerRank": 10 }],
+      "notes": "Limited impact due to the underlying chance to hit calculation that prioritizes weapon skills."
+    },
+    {
+      "id": "radResistance",
+      "name": "Rad Resistance",
+      "category": "combat",
+      "levelReq": 6,
+      "requirements": { "special": { "EN": 6, "IN": 4 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+10% to Radiation Resistance.",
+      "effects": [{ "stat": "radiationResistance", "valuePerRank": 10 }],
+      "notes": "Only floaters deal radiation damage; radiation is not a concern, except for the Glow."
+    },
+    {
+      "id": "sharpshooter",
+      "name": "Sharpshooter",
+      "category": "combat",
+      "levelReq": 6,
+      "requirements": { "special": { "PE": 7, "IN": 6 }, "skills": {} },
+      "ranks": 2,
+      "benefit": "+2 to Perception when determining range modifiers.",
+      "effects": [{ "stat": "rangePerception", "valuePerRank": 2 }],
+      "notes": "Limited impact due to the underlying chance to hit calculation that prioritizes weapon skills."
+    },
+    {
+      "id": "slayer",
+      "name": "Slayer",
+      "category": "combat",
+      "levelReq": 18,
+      "requirements": { "special": { "ST": 8, "AG": 8 }, "skills": { "unarmed": 80 } },
+      "ranks": 1,
+      "benefit": "All hand-to-hand attacks are critical hits.",
+      "effects": [],
+      "notes": null
+    },
+    {
+      "id": "snakeater",
+      "name": "Snakeater",
+      "category": "combat",
+      "levelReq": 6,
+      "requirements": { "special": { "EN": 3 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "+25% to Poison Resistance.",
+      "effects": [{ "stat": "poisonResistance", "valuePerRank": 25 }],
+      "notes": "Few creatures can poison the player character and the damage is minimal."
+    },
+    {
+      "id": "sniper",
+      "name": "Sniper",
+      "category": "combat",
+      "levelReq": 18,
+      "requirements": { "special": { "PE": 8, "AG": 8 }, "skills": { "smallGuns": 80 } },
+      "ranks": 1,
+      "benefit": "Increased chance to score a critical hit with ranged weapons.",
+      "effects": [],
+      "notes": null
+    },
+    {
+      "id": "toughness",
+      "name": "Toughness",
+      "category": "combat",
+      "levelReq": 3,
+      "requirements": { "special": { "EN": 6, "LK": 6 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+10% to damage resistance.",
+      "effects": [{ "stat": "damageResistance", "valuePerRank": 10 }],
+      "notes": null
+    },
+    {
+      "id": "ghost",
+      "name": "Ghost",
+      "category": "stealth",
+      "levelReq": 6,
+      "requirements": { "special": {}, "skills": { "sneak": 60 } },
+      "ranks": 1,
+      "benefit": "+20% to Sneak in dark conditions.",
+      "effects": [{ "stat": "sneak", "valuePerRank": 20, "condition": "dark" }],
+      "notes": null
+    },
+    {
+      "id": "pickpocket",
+      "name": "Pickpocket",
+      "category": "stealth",
+      "levelReq": 9,
+      "requirements": { "special": { "AG": 8 }, "skills": { "sneak": 80 } },
+      "ranks": 1,
+      "benefit": "Size and facing modifiers are ignored when stealing from someone.",
+      "effects": [],
+      "notes": null
+    },
+    {
+      "id": "silentDeath",
+      "name": "Silent Death",
+      "category": "stealth",
+      "levelReq": 18,
+      "requirements": { "special": { "AG": 10 }, "skills": { "sneak": 80 } },
+      "ranks": 1,
+      "benefit": "When sneaking, hand-to-hand attacks from behind do double damage.",
+      "effects": [],
+      "notes": null
+    },
+    {
+      "id": "silentRunning",
+      "name": "Silent Running",
+      "category": "stealth",
+      "levelReq": 6,
+      "requirements": { "special": { "AG": 6 }, "skills": { "sneak": 50 } },
+      "ranks": 1,
+      "benefit": "Able to sneak and run at the same time.",
+      "effects": [],
+      "notes": null
+    },
+    {
+      "id": "explorer",
+      "name": "Explorer",
+      "category": "worldMap",
+      "levelReq": 9,
+      "requirements": { "special": {}, "skills": {} },
+      "ranks": 1,
+      "benefit": "Higher chance of finding special places and people in random encounters.",
+      "effects": [],
+      "notes": "Marginal, if any, chance of finding special encounters."
+    },
+    {
+      "id": "fortuneFinder",
+      "name": "Fortune Finder",
+      "category": "worldMap",
+      "levelReq": 6,
+      "requirements": { "special": { "LK": 8 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "Additional money is found during random encounters.",
+      "effects": [],
+      "notes": "Marginal impact: Money spawns in minor amounts in random encounters."
+    },
+    {
+      "id": "mysteriousStranger",
+      "name": "Mysterious Stranger",
+      "category": "worldMap",
+      "levelReq": 6,
+      "requirements": { "special": { "LK": 7 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "Chance for the Mysterious Stranger to appear.",
+      "effects": [],
+      "notes": "The Stranger is lightly armed and will not appear again if killed."
+    },
+    {
+      "id": "pathfinder",
+      "name": "Pathfinder",
+      "category": "worldMap",
+      "levelReq": 6,
+      "requirements": { "special": { "EN": 6 }, "skills": { "outdoorsman": 40 } },
+      "ranks": 2,
+      "benefit": "25% reduction in travel time on the world map.",
+      "effects": [{ "stat": "travelTime", "valuePerRank": -25 }],
+      "notes": "Travel time has no impact on the game, as the initial time limit is generous and the 500 day invasion limit was removed."
+    },
+    {
+      "id": "ranger",
+      "name": "Ranger",
+      "category": "worldMap",
+      "levelReq": 6,
+      "requirements": { "special": { "PE": 6 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "Chance of hostile random encounters is lowered.",
+      "effects": [],
+      "notes": "Effectively reduces the amount of experience and loot that can be gained from random encounters."
+    },
+    {
+      "id": "scout",
+      "name": "Scout",
+      "category": "worldMap",
+      "levelReq": 3,
+      "requirements": { "special": { "PE": 8 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "Exploration is increased by 1 square in every direction on the world map.",
+      "effects": [],
+      "notes": "World map vision is not a factor in the game."
+    },
+    {
+      "id": "scrounger",
+      "name": "Scrounger",
+      "category": "worldMap",
+      "levelReq": 9,
+      "requirements": { "special": { "LK": 8 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "Doubles the amount of ammo found in random encounters.",
+      "effects": [],
+      "notes": "Marginal impact: Ammunition is abundant throughout the game."
+    },
+    {
+      "id": "survivalist",
+      "name": "Survivalist",
+      "category": "worldMap",
+      "levelReq": 3,
+      "requirements": { "special": { "EN": 6, "IN": 6 }, "skills": { "outdoorsman": 40 } },
+      "ranks": 3,
+      "benefit": "+20% bonus to Outdoorsman for survival checks.",
+      "effects": [{ "stat": "outdoorsman", "valuePerRank": 20, "condition": "survivalCheck" }],
+      "notes": "Survival checks deal minimal damage and are always absorbed by equipped armor."
+    },
+    {
+      "id": "educated",
+      "name": "Educated",
+      "category": "skill",
+      "levelReq": 6,
+      "requirements": { "special": { "IN": 6 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+2 skill points at level up.",
+      "effects": [{ "stat": "skillRate", "valuePerRank": 2 }],
+      "notes": null
+    },
+    {
+      "id": "masterThief",
+      "name": "Master Thief",
+      "category": "skill",
+      "levelReq": 12,
+      "requirements": { "special": {}, "skills": {} },
+      "ranks": 1,
+      "benefit": "+10% to skills: Sneak, Lockpick, Steal, and Traps.",
+      "effects": [
+        { "stat": "sneak", "valuePerRank": 10 },
+        { "stat": "lockpick", "valuePerRank": 10 },
+        { "stat": "steal", "valuePerRank": 10 },
+        { "stat": "traps", "valuePerRank": 10 }
+      ],
+      "notes": null
+    },
+    {
+      "id": "masterTrader",
+      "name": "Master Trader",
+      "category": "skill",
+      "levelReq": 9,
+      "requirements": { "special": { "CH": 7 }, "skills": { "barter": 60 } },
+      "ranks": 1,
+      "benefit": "+25% to Barter skill.",
+      "effects": [{ "stat": "barter", "valuePerRank": 25 }],
+      "notes": "Barter bonus is hidden."
+    },
+    {
+      "id": "medic",
+      "name": "Medic",
+      "category": "skill",
+      "levelReq": 12,
+      "requirements": { "special": {}, "skills": {} },
+      "ranks": 1,
+      "benefit": "+20% to skills: First Aid and Doctor.",
+      "effects": [
+        { "stat": "firstAid", "valuePerRank": 20 },
+        { "stat": "doctor", "valuePerRank": 20 }
+      ],
+      "notes": null
+    },
+    {
+      "id": "mrFixit",
+      "name": "Mr. Fixit",
+      "category": "skill",
+      "levelReq": 12,
+      "requirements": { "special": {}, "skills": {} },
+      "ranks": 1,
+      "benefit": "+20% to skills: Repair and Science.",
+      "effects": [
+        { "stat": "repair", "valuePerRank": 20 },
+        { "stat": "science", "valuePerRank": 20 }
+      ],
+      "notes": null
+    },
+    {
+      "id": "speaker",
+      "name": "Speaker",
+      "category": "skill",
+      "levelReq": 12,
+      "requirements": { "special": {}, "skills": {} },
+      "ranks": 1,
+      "benefit": "+20% to skills: Speech and Barter.",
+      "effects": [
+        { "stat": "speech", "valuePerRank": 20 },
+        { "stat": "barter", "valuePerRank": 20 }
+      ],
+      "notes": null
+    },
+    {
+      "id": "tag",
+      "name": "Tag!",
+      "category": "skill",
+      "levelReq": 12,
+      "requirements": { "special": {}, "skills": {} },
+      "ranks": 1,
+      "benefit": "Pick an additional Tag Skill.",
+      "effects": [],
+      "notes": null
+    },
+    {
+      "id": "cultOfPersonality",
+      "name": "Cult of Personality",
+      "category": "dialogue",
+      "levelReq": 12,
+      "requirements": { "special": { "CH": 10 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "People will always view the player character favorably regardless of reputation or NPC alignment.",
+      "effects": [],
+      "notes": "It's virtually impossible for characters to react negatively to the player character."
+    },
+    {
+      "id": "empathy",
+      "name": "Empathy",
+      "category": "dialogue",
+      "levelReq": 6,
+      "requirements": { "special": { "PE": 7, "IN": 5 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "Reaction levels are shown when in an in-depth conversation.",
+      "effects": [],
+      "notes": null
+    },
+    {
+      "id": "presence",
+      "name": "Presence",
+      "category": "dialogue",
+      "levelReq": 3,
+      "requirements": { "special": { "CH": 6 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+10% to initial reaction of NPCs.",
+      "effects": [{ "stat": "npcReaction", "valuePerRank": 10 }],
+      "notes": null
+    },
+    {
+      "id": "smoothTalker",
+      "name": "Smooth Talker",
+      "category": "dialogue",
+      "levelReq": 3,
+      "requirements": { "special": { "IN": 4 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+1 to Intelligence for the purposes of dialogue.",
+      "effects": [{ "stat": "dialogueIntelligence", "valuePerRank": 1 }],
+      "notes": "Intelligence has a marginal effect on the success of speech checks, as the game prioritizes the Speech skill; Mentats also provide the same benefit."
+    },
+    {
+      "id": "fasterHealing",
+      "name": "Faster Healing",
+      "category": "miscellaneous",
+      "levelReq": 3,
+      "requirements": { "special": { "EN": 6 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+1 bonus to healing rate.",
+      "effects": [{ "stat": "healingRate", "valuePerRank": 1 }],
+      "notes": "Stimpaks are readily available and chem addiction has a very limited duration."
+    },
+    {
+      "id": "flowerChild",
+      "name": "Flower Child",
+      "category": "miscellaneous",
+      "levelReq": 9,
+      "requirements": { "special": { "EN": 5 }, "skills": {} },
+      "ranks": 1,
+      "benefit": "50% less likely to be addicted to chems, and withdrawal time is halved.",
+      "effects": [],
+      "notes": "Stimpaks are readily available and chem addiction has a very limited duration."
+    },
+    {
+      "id": "healer",
+      "name": "Healer",
+      "category": "miscellaneous",
+      "levelReq": 3,
+      "requirements": { "special": { "PE": 7, "IN": 5, "AG": 6 }, "skills": { "firstAid": 40 } },
+      "ranks": 3,
+      "benefit": "2-5 more hit points healed when using First Aid or Doctor skills.",
+      "effects": [{ "stat": "healAmount", "valuePerRank": "2-5" }],
+      "notes": null
+    },
+    {
+      "id": "lifegiver",
+      "name": "Lifegiver",
+      "category": "miscellaneous",
+      "levelReq": 12,
+      "requirements": { "special": { "EN": 4 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+4 HP per level.",
+      "effects": [{ "stat": "hitPointsPerLevel", "valuePerRank": 4 }],
+      "notes": "Marginal benefit due to the level limit."
+    },
+    {
+      "id": "mentalBlock",
+      "name": "Mental Block",
+      "category": "miscellaneous",
+      "levelReq": 15,
+      "requirements": { "special": {}, "skills": {} },
+      "ranks": 1,
+      "benefit": "Resistance to the Master's psychic attacks.",
+      "effects": [],
+      "notes": "Psychic nullifier is readily available."
+    },
+    {
+      "id": "mutate",
+      "name": "Mutate!",
+      "category": "miscellaneous",
+      "levelReq": 9,
+      "requirements": { "special": {}, "skills": {} },
+      "ranks": 1,
+      "benefit": "Change one of your traits.",
+      "effects": [],
+      "notes": "If you chose no trait at character creation, you cannot fill the empty slot with this perk."
+    },
+    {
+      "id": "quickPockets",
+      "name": "Quick Pockets",
+      "category": "miscellaneous",
+      "levelReq": 3,
+      "requirements": { "special": { "AG": 5 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "-1 to AP cost to access Inventory.",
+      "effects": [{ "stat": "inventoryApCost", "valuePerRank": -1 }],
+      "notes": "Cost is 4/3/2/1 AP, depending on ranks taken."
+    },
+    {
+      "id": "strongBack",
+      "name": "Strong Back",
+      "category": "miscellaneous",
+      "levelReq": 3,
+      "requirements": { "special": { "ST": 6, "EN": 6 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "Carry an additional 50 lbs. of equipment.",
+      "effects": [{ "stat": "carryWeight", "valuePerRank": 50 }],
+      "notes": "Party members can carry a lot and party size becomes unlimited."
+    },
+    {
+      "id": "swiftLearner",
+      "name": "Swift Learner",
+      "category": "miscellaneous",
+      "levelReq": 3,
+      "requirements": { "special": { "IN": 4 }, "skills": {} },
+      "ranks": 3,
+      "benefit": "+5% bonus whenever XP is earned.",
+      "effects": [{ "stat": "xpBonus", "valuePerRank": 5 }],
+      "notes": null
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "game": "Fallout 1",
+    "source": "https://fallout.fandom.com/wiki/Fallout_primary_statistics",
+    "startingPointsPerAttribute": 5,
+    "totalStartingPoints": 40,
+    "min": 1,
+    "max": 10
+  },
+  "attributes": [
+    {
+      "id": 0,
+      "key": "ST",
+      "name": "Strength",
+      "letter": "S",
+      "description": "Raw physical strength.",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "derivedStats": ["carryWeight", "hitPoints", "meleeDamage"],
+      "associatedSkills": ["meleeWeapons", "unarmed"]
+    },
+    {
+      "id": 1,
+      "key": "PE",
+      "name": "Perception",
+      "letter": "P",
+      "description": "The ability to see, hear and taste and notice unusual things.",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "derivedStats": ["sequence"],
+      "associatedSkills": ["doctor", "firstAid", "lockpick", "traps"]
+    },
+    {
+      "id": 2,
+      "key": "EN",
+      "name": "Endurance",
+      "letter": "E",
+      "description": "Stamina and physical toughness.",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "derivedStats": ["healingRate", "hitPoints", "poisonResistance", "radiationResistance"],
+      "associatedSkills": ["outdoorsman"]
+    },
+    {
+      "id": 3,
+      "key": "CH",
+      "name": "Charisma",
+      "letter": "C",
+      "description": "A combination of appearance and charm.",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "derivedStats": [],
+      "associatedSkills": ["barter", "speech"]
+    },
+    {
+      "id": 4,
+      "key": "IN",
+      "name": "Intelligence",
+      "letter": "I",
+      "description": "Knowledge, wisdom and the ability to think quickly.",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "derivedStats": ["skillRate"],
+      "associatedSkills": ["doctor", "firstAid", "outdoorsman", "repair", "science"]
+    },
+    {
+      "id": 5,
+      "key": "AG",
+      "name": "Agility",
+      "letter": "A",
+      "description": "Coordination and the ability to move well.",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "derivedStats": ["actionPoints", "armorClass"],
+      "associatedSkills": ["bigGuns", "energyWeapons", "lockpick", "meleeWeapons", "smallGuns", "sneak", "steal", "throwing", "traps", "unarmed"]
+    },
+    {
+      "id": 6,
+      "key": "LK",
+      "name": "Luck",
+      "letter": "L",
+      "description": "Fate, Karma.",
+      "default": 5,
+      "min": 1,
+      "max": 10,
+      "derivedStats": ["criticalChance"],
+      "associatedSkills": ["gambling"]
+    }
+  ]
+}
