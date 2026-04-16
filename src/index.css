@@ -1,0 +1,226 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pip-green: #18ff6d;
+  --color-pip-green-dim: #0e9e42;
+  --color-pip-green-bright: #5cffab;
+  --color-pip-dark: #0a0a0a;
+  --color-pip-panel: #0d1a0d;
+  --color-pip-grid: #0d2b0d;
+  --color-pip-amber: #ff9d00;
+  --color-pip-red: #ff3333;
+  --color-pip-border: #1a3d1a;
+  --color-pip-border-bright: #18ff6d;
+  --font-family-mono: 'Share Tech Mono', monospace;
+  --font-family-display: 'VT323', monospace;
+}
+
+/* ─── Global Reset ─────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-pip-green-dim) var(--color-pip-dark);
+}
+
+body {
+  margin: 0;
+  background: var(--color-pip-dark);
+  color: var(--color-pip-green);
+  font-family: var(--font-family-mono);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ─── CRT Scanline Overlay ─────────────────────────────── */
+#root::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ─── CRT Glow ─────────────────────────────────────────── */
+#root {
+  position: relative;
+  min-height: 100vh;
+}
+
+/* ─── Screen Flicker ───────────────────────────────────── */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  96% { opacity: 0.9; }
+  97% { opacity: 1; }
+}
+
+/* ─── Text Glow ────────────────────────────────────────── */
+.text-glow {
+  text-shadow: 0 0 7px rgba(24, 255, 109, 0.6),
+               0 0 20px rgba(24, 255, 109, 0.3);
+}
+
+.text-glow-amber {
+  text-shadow: 0 0 7px rgba(255, 157, 0, 0.6),
+               0 0 20px rgba(255, 157, 0, 0.3);
+}
+
+/* ─── Pip-Boy Segmented Bar ────────────────────────────── */
+.pip-bar-segment {
+  width: 100%;
+  height: 12px;
+  display: flex;
+  gap: 2px;
+}
+
+.pip-bar-segment .segment {
+  flex: 1;
+  background: var(--color-pip-grid);
+  border: 1px solid var(--color-pip-border);
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
+.pip-bar-segment .segment.filled {
+  background: var(--color-pip-green);
+  box-shadow: 0 0 4px rgba(24, 255, 109, 0.4);
+  border-color: var(--color-pip-green);
+}
+
+/* ─── Pip-Boy Button ───────────────────────────────────── */
+.pip-btn {
+  background: transparent;
+  color: var(--color-pip-green);
+  border: 1px solid var(--color-pip-border);
+  padding: 4px 12px;
+  font-family: var(--font-family-mono);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pip-btn:hover:not(:disabled) {
+  border-color: var(--color-pip-green);
+  background: rgba(24, 255, 109, 0.08);
+  text-shadow: 0 0 7px rgba(24, 255, 109, 0.5);
+}
+
+.pip-btn:active:not(:disabled) {
+  background: rgba(24, 255, 109, 0.15);
+}
+
+.pip-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.pip-btn-sm {
+  padding: 2px 8px;
+  font-size: 16px;
+  min-width: 28px;
+  font-family: var(--font-family-display);
+}
+
+/* ─── Panel Style ──────────────────────────────────────── */
+.pip-panel {
+  background: var(--color-pip-panel);
+  border: 1px solid var(--color-pip-border);
+  position: relative;
+}
+
+.pip-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(24, 255, 109, 0.02) 0%,
+    transparent 50%,
+    rgba(24, 255, 109, 0.01) 100%
+  );
+  pointer-events: none;
+}
+
+/* ─── Section Header ───────────────────────────────────── */
+.section-header {
+  font-family: var(--font-family-display);
+  font-size: 28px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-pip-green);
+  border-bottom: 1px solid var(--color-pip-border);
+  padding-bottom: 8px;
+  margin-bottom: 16px;
+}
+
+/* ─── Scrollbar ────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-pip-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-pip-green-dim);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-pip-green);
+}
+
+/* ─── Selection ────────────────────────────────────────── */
+::selection {
+  background: rgba(24, 255, 109, 0.3);
+  color: var(--color-pip-green-bright);
+}
+
+/* ─── Boot Animation ───────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* ─── Tooltip ──────────────────────────────────────────── */
+.pip-tooltip {
+  position: relative;
+}
+
+.pip-tooltip .tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-pip-dark);
+  border: 1px solid var(--color-pip-green-dim);
+  color: var(--color-pip-green);
+  padding: 6px 12px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 100;
+  transition: opacity 0.15s;
+  pointer-events: none;
+}
+
+.pip-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
