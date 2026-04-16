@@ -1,73 +1,26 @@
-# React + TypeScript + Vite
+# Fallout 1 Build Planner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**[Live Demo → https://t1742.github.io/fo-builder/](https://t1742.github.io/fo-builder/)**
 
-Currently, two official plugins are available:
+A retro Pip-Boy-themed character build planner for Fallout 1. Plan your SPECIAL stats, traits, skills, and perks with live derived stat calculations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- **S.P.E.C.I.A.L.** — Distribute 40 points across 7 attributes with segmented Pip-Boy bars
+- **Traits** — Select up to 2 traits with green/amber benefit/penalty display
+- **Tag Skills** — Tag 3 of 18 skills for a +20% bonus, grouped by category
+- **Level Progression** — Allocate skill points level-by-level (1–21)
+- **Perks** — Choose perks at milestone levels, filtered by eligibility requirements
+- **Derived Stats** — Live-updating sidebar with all 13 derived statistics
+- **Export/Import** — Save builds as JSON, load from file, or persist to localStorage
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+React + TypeScript, Vite, Tailwind CSS. All game data is static JSON — no backend required.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Development
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
